@@ -1,0 +1,29 @@
+.shop-page {
+  display: flex;
+  min-height: calc(100vh - 56px);
+}
+
+.shop-main {
+  flex: 1;                          
+  padding: 1.5rem;
+  background-color: #0f0f0f;        
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.no-results {
+  color: #888888;
+  font-size: 1rem;
+  padding: 2rem;
+}
+
+.shop-status {
+  color: #888888;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1rem;
+}

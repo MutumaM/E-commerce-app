@@ -1,0 +1,65 @@
+.sidebar {
+  background-color: #1a1a1a;        
+  border-right: 1px solid #2a2a2a;  
+  padding: 1.5rem 1rem;
+  width: 180px;
+  min-height: calc(100vh - 56px);
+  flex-shrink: 0;                   
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid #333333;
+  border-radius: 20px;              
+  background-color: #252525;        
+  color: #e8e8e8;
+  outline: none;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.search-input::placeholder {
+  color: #555555;
+}
+
+.search-input:focus {
+  border-color: #7F77DD;            
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.filter-title {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #666666;                   
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.filter-label:hover {
+  color: #ffffff;
+}
+
+.filter-label input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: #7F77DD;            
+  width: 14px;
+  height: 14px;
+}

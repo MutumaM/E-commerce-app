@@ -1,0 +1,70 @@
+.home-page {
+  background-color: #0f0f0f;       
+  min-height: calc(100vh - 56px);  
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  gap: 1rem;
+}
+
+.home-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.home-title .accent {
+  color: #7F77DD;
+}
+
+.home-subtitle {
+  font-size: 1.2rem;
+  color: #888888;                  
+  max-width: 480px;
+}
+
+.home-phone {
+  margin-top: 0.5rem;
+  color: #555555;
+  font-size: 0.95rem;
+}
+
+.home-cta-btn {
+  margin-top: 1rem;
+  background-color: #7F77DD;       
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.home-cta-btn:hover {
+  background-color: #534AB7;      /
+}
+
+.status-msg {
+  color: #888888;
+  font-size: 1rem;
+}
+
+.error-msg {
+  max-width: 500px;
+  line-height: 1.6;
+  color: #ff6b6b;                 
+}
+
+.error-msg code {
+  background-color: #252525;
+  color: #e8e8e8;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
