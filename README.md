@@ -1,24 +1,19 @@
-# Coffee R Us (beginner version)
+NuShop
+A dark-themed ecommerce web app built with React and Vite.
+Browse products across 6 categories — Phones & Tablets, Electronics, Gaming, Home Appliances, Office, and Clothes.
 
-React + Vite coffee shop app for Moringa / Flatiron style labs.
+Features
 
-## Run (one terminal only)
+Browse and search products by name
+ - Filter products by category
+ - Admin portal to add, edit, and delete products
+ - Dark theme throughout
+ - Fully responsive layout
 
-```bash
-npm install
-npm run dev
-```
 
-Open http://localhost:5173
+Tech Stack
 
-Data loads from `public/db.json` with `fetch`. Add/edit/delete update React state (refresh page resets data).
-
-## Tests
-
-```bash
-npm run test:run
-```
-
-## Hooks used
-
-- useState, useEffect, useContext, useRef
+React
+Vite
+React Router DOM
+Vitest + React Testing Library
