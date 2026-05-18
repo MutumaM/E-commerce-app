@@ -30,6 +30,7 @@ function Home() {
           Nu<span className="accent">Shop</span>
         </h1>
         <p className="home-subtitle">
+          <p>Shop less, choose better.</p>
           NuShop curates products that actually last — no filler, no noise, no decision fatigue.
         </p>
         <NavLink to="/shop" className="home-cta-btn">
