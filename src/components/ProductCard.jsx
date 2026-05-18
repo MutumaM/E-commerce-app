@@ -22,10 +22,13 @@ function ProductCard(props) {
       )}
 
       <div className="card-body">
+
         {/* Category tag */}
+        
         <span className="card-category">{product.Category}</span>
 
         {/* Name */}
+
         <h3 className="card-name">{product.name}</h3>
 
         Star rating
