@@ -2,14 +2,14 @@
   background-color: #1a1a1a;      
   border-bottom: 1px solid #2a2a2a; 
   padding: 0 2rem;
-  height: 56px;                   
- 
+  height: 56px;                 
+
   display: flex;
   align-items: center;            
   justify-content: space-between;
   gap: 1rem;
 }
- 
+
 
 .nav-logo {
   font-size: 1.2rem;
@@ -17,25 +17,24 @@
   color: #ffffff;
   letter-spacing: -0.3px;
 }
- 
+
 .nav-logo span {
-  color: #7F77DD;                
+  color: #7F77DD;                 
 }
- 
+
 .nav-link {
   color: #aaaaaa;                 
   font-size: 1rem;
   padding-bottom: 4px;
   transition: color 0.2s;
 }
- 
+
 .nav-link:hover {
   color: #ffffff;                 
 }
- 
+
 .nav-link.active {
   color: #ffffff;
-  border-bottom: 2px solid #7F77DD;
+  border-bottom: 2px solid #7F77DD; 
   font-weight: bold;
 }
- 

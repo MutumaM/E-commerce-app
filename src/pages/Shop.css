@@ -1,26 +1,36 @@
+/* ==========================================
+   Shop.css — Shop page layout
+   (sidebar + product grid wrapper)
+   ========================================== */
+
+/* Outer wrapper: sidebar sits beside the grid */
 .shop-page {
   display: flex;
   min-height: calc(100vh - 56px);
 }
 
+/* The scrollable area that holds the product cards */
 .shop-main {
-  flex: 1;                          
+  flex: 1;                          /* take all remaining width */
   padding: 1.5rem;
-  background-color: #0f0f0f;        
+  background-color: #0f0f0f;        /* same as page background */
 }
 
+/* Responsive product grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1rem;
 }
 
+/* Shown when search returns nothing */
 .no-results {
   color: #888888;
   font-size: 1rem;
   padding: 2rem;
 }
 
+/* Loading / error state text in the shop area */
 .shop-status {
   color: #888888;
   padding: 2rem;

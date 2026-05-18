@@ -1,28 +1,36 @@
 import './Sidebar.css'
 
+const CATEGORIES = [
+  'Phones and tablets',
+  'Electronics',
+  'Gaming',
+  'Home Appliances',
+  'Office',
+  'Clothes',
+]
+
+
 function Sidebar(props) {
   const searchText = props.searchText
   const onSearchChange = props.onSearchChange
-  const selectedLocations = props.selectedLocations
-  const onLocationChange = props.onLocationChange
+  const selectedCategories = props.selectedCategories
+  const onCategoryChange = props.onCategoryChange
 
-  function isChecked(location) {
-    return selectedLocations.includes(location)
+  function isChecked(category) {
+    return selectedCategories.includes(category)
   }
 
-  function handleCheckbox(location) {
-    if (isChecked(location)) {
-
-      onLocationChange(selectedLocations.filter(function (loc) {
-        return loc !== location
+  function handleCheckbox(category) {
+    if (isChecked(category)) {
+      // Remove it
+      onCategoryChange(selectedCategories.filter(function (ticked) {
+        return ticked !== category
       }))
     } else {
-
-      onLocationChange([...selectedLocations, location])
+      // Add it
+      onCategoryChange([...selectedCategories, category])
     }
   }
-
-  const locations = ['Location 1', 'Location 2', 'Location 3', 'Location 4']
 
   return (
     <aside className="sidebar">
@@ -30,7 +38,7 @@ function Sidebar(props) {
       <input
         type="text"
         className="search-input"
-        placeholder="Search"
+        placeholder="Search products..."
         value={searchText}
         onChange={function (e) {
           onSearchChange(e.target.value)
@@ -38,24 +46,24 @@ function Sidebar(props) {
       />
 
       <div className="filter-section">
-        <p className="filter-title">Filter by location</p>
+        <p className="filter-title">Categories</p>
 
-        {locations.map(function (location) {
+        {CATEGORIES.map(function (category) {
           return (
-            <label key={location} className="filter-label">
+            <label key={category} className="filter-label">
               <input
                 type="checkbox"
-                checked={isChecked(location)}
+                checked={isChecked(category)}
                 onChange={function () {
-                  handleCheckbox(location)
+                  handleCheckbox(category)
                 }}
               />
-              {location}
+              {category}
             </label>
           )
         })}
-
       </div>
+
     </aside>
   )
 }

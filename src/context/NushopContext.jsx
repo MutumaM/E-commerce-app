@@ -3,8 +3,7 @@ import { createContext, useContext, useState, useEffect } from 'react'
 const NuShopContext = createContext()
 
 export function NuShopProvider({ children }) {
-  const [coffeeList, setCoffeeList] = useState([])
-  const [storeInfo, setStoreInfo] = useState(null)
+  const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -14,58 +13,57 @@ export function NuShopProvider({ children }) {
         return response.json()
       })
       .then(function (data) {
-        setCoffeeList(data.coffee)
-        setStoreInfo(data.store_info[0])
+        setProducts(data.products)
+        console.log(data) 
         setLoading(false)
       })
       .catch(function () {
-        setError('Could not load db.json — make sure it is in the /public folder')
+        setError('Could not load db.json')
         setLoading(false)
       })
   }, [])
 
-  function addCoffee(newCoffee) {
-    const lastId = coffeeList.length > 0 ? coffeeList[coffeeList.length - 1].id : 0
-
-    const coffeeToAdd = {
-      id: lastId + 1,
-      name: newCoffee.name,
-      description: newCoffee.description,
-      origin: newCoffee.origin,
-      price: newCoffee.price,
-      location: newCoffee.location,
+  // Add a new product
+  function addProduct(newProduct) {
+    const lastId = products.length > 0 ? Number(products[products.length - 1].id) : 0
+    const productToAdd = {
+      id: String(lastId + 1),
+      name: newProduct.name,
+      Category: newProduct.Category,
+      price: Number(newProduct.price),
+      rating: newProduct.rating,
+      image: newProduct.image || '',
     }
-
-    setCoffeeList([...coffeeList, coffeeToAdd])
+    setProducts([...products, productToAdd])
   }
 
-  function updateCoffee(id, updates) {
-    const updatedList = coffeeList.map(function (coffee) {
-      if (coffee.id === id) {
+  // Update an existing product
+  function updateProduct(id, updates) {
+    const updatedList = products.map(function (product) {
+      if (product.id === id) {
         return { id: id, ...updates }
       }
-      return coffee
+      return product
     })
-    setCoffeeList(updatedList)
+    setProducts(updatedList)
   }
 
-
-  function deleteCoffee(id) {
-    setCoffeeList(coffeeList.filter(function (coffee) {
-      return coffee.id !== id
+  // Delete a product
+  function deleteProduct(id) {
+    setProducts(products.filter(function (product) {
+      return product.id !== id
     }))
   }
 
   return (
     <NuShopContext.Provider
       value={{
-        coffeeList,
-        storeInfo,
+        products,
         loading,
         error,
-        addCoffee,
-        updateCoffee,
-        deleteCoffee,
+        addProduct,
+        updateProduct,
+        deleteProduct,
       }}
     >
       {children}

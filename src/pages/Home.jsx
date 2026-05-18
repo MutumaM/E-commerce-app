@@ -1,8 +1,9 @@
-import { useNuShop } from '../context/NushopContext'
+import { useNuShop } from '../context/NuShopContext'
+import { NavLink } from 'react-router-dom'
 import './Home.css'
 
 function Home() {
-  const { storeInfo, loading, error } = useNuShop()
+  const { products, loading, error } = useNuShop()
 
   if (loading) {
     return (
@@ -20,13 +21,22 @@ function Home() {
     )
   }
 
+
   return (
     <div className="home-page">
-      <h1 className="home-title">
-        Nu<span className="accent">Shop</span>
-      </h1>
-      <p className="home-subtitle">{storeInfo.description}</p>
-      <p className="home-phone">Call us: {storeInfo.phone_number}</p>
+
+      <div className="home-hero">
+        <h1 className="home-title">
+          Nu<span className="accent">Shop</span>
+        </h1>
+        <p className="home-subtitle">
+          NuShop curates products that actually last — no filler, no noise, no decision fatigue.
+        </p>
+        <NavLink to="/shop" className="home-cta-btn">
+          Browse Products
+        </NavLink>
+      </div>
+
     </div>
   )
 }

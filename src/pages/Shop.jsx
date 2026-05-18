@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { useNuShop } from '../context/NushopContext'
+import { useNuShop } from '../context/NuShopContext'
 import Sidebar from '../components/Sidebar'
 import ProductCard from '../components/ProductCard'
 import './Shop.css'
 
 function Shop() {
-  const { coffeeList, loading, error } = useNuShop()
+  const { products, loading, error } = useNuShop()
 
   const [searchText, setSearchText] = useState('')
-  const [selectedLocations, setSelectedLocations] = useState([])
+  const [selectedCategories, setSelectedCategories] = useState([])
 
   if (loading) {
     return <p className="shop-status">Loading products...</p>
@@ -18,13 +18,15 @@ function Shop() {
     return <p className="shop-status">Error: {error}</p>
   }
 
-  let coffeesToShow = coffeeList.filter(function (coffee) {
-    return coffee.name.toLowerCase().includes(searchText.toLowerCase())
+
+  let productsToShow = products.filter(function (product) {
+    return product.name.toLowerCase().includes(searchText.toLowerCase())
   })
 
-  if (selectedLocations.length > 0) {
-    coffeesToShow = coffeesToShow.filter(function (coffee) {
-      return selectedLocations.includes(coffee.location)
+ 
+  if (selectedCategories.length > 0) {
+    productsToShow = productsToShow.filter(function (product) {
+      return selectedCategories.includes(product.Category)
     })
   }
 
@@ -33,17 +35,17 @@ function Shop() {
       <Sidebar
         searchText={searchText}
         onSearchChange={setSearchText}
-        selectedLocations={selectedLocations}
-        onLocationChange={setSelectedLocations}
+        selectedCategories={selectedCategories}
+        onCategoryChange={setSelectedCategories}
       />
 
       <section className="shop-main">
-        {coffeesToShow.length === 0 ? (
+        {productsToShow.length === 0 ? (
           <p className="no-results">No products found</p>
         ) : (
           <div className="product-grid">
-            {coffeesToShow.map(function (coffee) {
-              return <ProductCard key={coffee.id} coffee={coffee} />
+            {productsToShow.map(function (product) {
+              return <ProductCard key={product.id} product={product} />
             })}
           </div>
         )}

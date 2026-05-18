@@ -1,7 +1,8 @@
 .admin-page {
-  background-color: #7a5c3a;
-  min-height: calc(100vh - 60px);
+  background-color: #0f0f0f;        
+  min-height: calc(100vh - 56px);
   padding: 2rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,10 +15,13 @@
 }
 
 .admin-list-title {
-  color: #f5f0eb;
+  color: #aaaaaa;
   margin-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
+
 
 .admin-grid {
   display: grid;
@@ -25,8 +29,10 @@
   gap: 1rem;
 }
 
+
 .admin-status {
-  color: #f5f0eb;
+  color: #888888;
   padding: 2rem;
   text-align: center;
+  font-size: 1rem;
 }

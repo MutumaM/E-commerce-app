@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { useNuShop } from '../context/NuShopContext'
-import CoffeeForm from '../components/CoffeeForm'
+import ProductForm from '../components/ProductForm'
 import ProductCard from '../components/ProductCard'
 import './Admin.css'
 
 function Admin() {
-  const { coffeeList, loading, error, addCoffee, updateCoffee, deleteCoffee } = useNuShop()
+  const { products, loading, error, addProduct, updateProduct, deleteProduct } = useNuShop()
 
-
-  const [editingCoffee, setEditingCoffee] = useState(null)
+ 
+  const [editingProduct, setEditingProduct] = useState(null)
 
   if (loading) {
     return <p className="admin-status">Loading...</p>
@@ -18,46 +18,45 @@ function Admin() {
     return <p className="admin-status">Error: {error}</p>
   }
 
-
-  function handleFormSubmit(coffeeData, editId) {
+  function handleFormSubmit(productData, editId) {
     if (editId) {
-      updateCoffee(editId, coffeeData)
+      updateProduct(editId, productData)
     } else {
-      addCoffee(coffeeData)
+      addProduct(productData)
     }
-    setEditingCoffee(null)
+    setEditingProduct(null)
   }
 
   function handleDelete(id) {
     const confirmed = window.confirm('Delete this product?')
     if (!confirmed) return
 
-    deleteCoffee(id)
+    deleteProduct(id)
 
-    if (editingCoffee && editingCoffee.id === id) {
-      setEditingCoffee(null)
+
+    if (editingProduct && editingProduct.id === id) {
+      setEditingProduct(null)
     }
   }
 
   return (
     <div className="admin-page">
 
-
-      <CoffeeForm
+      <ProductForm
         onSubmit={handleFormSubmit}
-        editingCoffee={editingCoffee}
-        onCancelEdit={function () { setEditingCoffee(null) }}
+        editingProduct={editingProduct}
+        onCancelEdit={function () { setEditingProduct(null) }}
       />
 
       <section className="admin-list">
-        <h2 className="admin-list-title">Manage Products</h2>
+        <h2 className="admin-list-title">Manage Products ({products.length})</h2>
         <div className="admin-grid">
-          {coffeeList.map(function (coffee) {
+          {products.map(function (product) {
             return (
               <ProductCard
-                key={coffee.id}
-                coffee={coffee}
-                onEdit={setEditingCoffee}
+                key={product.id}
+                product={product}
+                onEdit={setEditingProduct}
                 onDelete={handleDelete}
               />
             )
@@ -70,3 +69,4 @@ function Admin() {
 }
 
 export default Admin
+
