@@ -8,7 +8,7 @@ export function NuShopProvider({ children }) {
   const [error, setError] = useState('')
 
   useEffect(function () {
-    fetch('/db.json')
+    fetch('https://backend-e-commerce-erpl.onrender.com/api/products')
       .then(function (response) {
         return response.json()
       })
