@@ -36,7 +36,9 @@ function Admin() {
 
     if (editingProduct && editingProduct.id === id) {
       setEditingProduct(null)
+
     }
+    
   }
 
   return (
