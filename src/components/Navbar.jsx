@@ -7,6 +7,7 @@ function Navbar() {
     <nav className="navbar">
 
       <span className="nav-logo">
+        
         Nu<span>Shop</span>
       </span>
 
