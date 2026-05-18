@@ -23,8 +23,8 @@ function Sidebar(props) {
   function handleCheckbox(category) {
     if (isChecked(category)) {
       // Remove it
-      onCategoryChange(selectedCategories.filter(function (ticked) {
-        return ticked !== category
+      onCategoryChange(selectedCategories.filter(function (tick) {
+        return tick !== category
       }))
     } else {
       // Add it
