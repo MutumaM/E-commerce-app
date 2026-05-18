@@ -4,7 +4,7 @@ Browse products across 6 categories — Phones & Tablets, Electronics, Gaming, H
 
 Features
 
-Browse and search products by name
+ - Browse and search products by name
  - Filter products by category
  - Admin portal to add, edit, and delete products
  - Dark theme throughout
